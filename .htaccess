@@ -1,0 +1,21 @@
+options -multiviews
+<IfModule mod_rewrite.c>
+RewriteEngine On 
+RewriteBase /
+
+RewriteCond %{HTTP_HOST} ^minnano-shopping\.com
+RewriteRule ^(.*)$ http://www.minnano-shopping.com/$1 [R=permanent,L]
+RewriteRule ^search$ search.php
+RewriteRule ^category$ category.php
+RewriteRule ^list$ list.php
+RewriteRule ^keyword$ keyword.php
+
+</IfModule>
+<IfModule mod_security.c> 
+   # Turn off mod_security filtering. 
+   SecFilterEngine Off 
+
+   # The below probably isn't needed, 
+   # but better safe than sorry. 
+   SecFilterScanPOST Off 
+</IfModule>
